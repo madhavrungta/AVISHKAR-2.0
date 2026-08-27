@@ -1,0 +1,8 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+  "integration: requires a running PostGIS database",
+  "live: calls the official NASA FIRMS API and requires a map key",
+]
+

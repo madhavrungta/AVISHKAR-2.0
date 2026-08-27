@@ -1,0 +1,32 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Node / frontend
+node_modules/
+dist/
+coverage/
+
+# Reproducible-but-local FIRMS data
+backend/data/raw/
+backend/data/processed/
+!backend/data/raw/.gitkeep
+!backend/data/processed/.gitkeep
+
+# Editors and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+
