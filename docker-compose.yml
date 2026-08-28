@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: sih_postgis
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-firms_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-firms_password}
+      POSTGRES_DB: ${POSTGRES_DB:-firms_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-firms_user} -d ${POSTGRES_DB:-firms_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sih_backend
+    environment:
+      - FIRMS_MAP_KEY=${FIRMS_MAP_KEY}
+      - FIRMS_SOURCE=${FIRMS_SOURCE:-VIIRS_SNPP_NRT}
+      - FIRMS_AREA=${FIRMS_AREA:-68.0,6.0,97.0,37.0}
+      - FIRMS_DAYS=${FIRMS_DAYS:-1}
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-firms_user}:${POSTGRES_PASSWORD:-firms_password}@db:5432/${POSTGRES_DB:-firms_db}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend/data/raw:/app/data/raw
+      - ./backend/data/processed:/app/data/processed
+
+volumes:
+  postgres_data:
