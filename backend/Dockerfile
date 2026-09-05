@@ -12,16 +12,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy backend application modules, datasets, and verified ML artifacts
-COPY app/ ./app/
-COPY data/ ./data/
-COPY ml_artifacts/ ./ml_artifacts/
-COPY agent/ ./agent/
+COPY backend/app/ ./app/
+COPY backend/data/ ./data/
+COPY backend/ml_artifacts/ ./ml_artifacts/
+COPY backend/agent/ ./agent/
 
 EXPOSE 8000
 
-# Bind to Railway's dynamic PORT or default to 8000
+# Bind to Render / Railway dynamic PORT or default to 8000
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
