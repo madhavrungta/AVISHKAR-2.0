@@ -355,12 +355,11 @@ export const MapWorkspace: React.FC<MapWorkspaceProps> = ({
         className="w-full h-full flex-1"
         style={{ width: '100%', height: '100%' }}
       >
-        {/* Dark Stadia Alidade Smooth Dark Basemap — no API key required */}
+        {/* Esri World Dark Gray Base — Clean Tactical Dark Canvas without watermark */}
         <TileLayer
-          attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
-          url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
-          maxZoom={20}
-          subdomains="abcd"
+          attribution='Tiles &copy; Esri &mdash; NASA FIRMS & OSM Geodata'
+          url={import.meta.env.VITE_MAP_TILE_URL || "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"}
+          maxZoom={18}
         />
 
         <MapResizer />

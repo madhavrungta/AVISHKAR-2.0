@@ -30,6 +30,24 @@ logger = logging.getLogger("firms_app.main")
 async def lifespan(app: FastAPI):
     logger.info("Starting SIH 26162 Thermal Anomaly Detection Backend...")
     init_db()
+    
+    # Auto-seed demonstration data if database is fresh/empty
+    from app.database import SessionLocal
+    from app.models.industrial_facility import IndustrialFacility
+    from app.seed import seed_database
+    
+    db = SessionLocal()
+    try:
+        count = db.query(IndustrialFacility).count()
+        if count == 0:
+            logger.info("Database is empty. Automatically executing demo seed and 8-phase pipeline...")
+            seed_database()
+            logger.info("Initial demo seed completed successfully.")
+    except Exception as e:
+        logger.warning(f"Auto-seed check encountered an issue: {e}")
+    finally:
+        db.close()
+
     key_safety = settings.get_firms_key_safety_status()
     logger.info(f"FIRMS API Status: {key_safety['message']}")
     yield
@@ -51,31 +69,37 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins_list,
-    allow_origin_regex=r"https://.*\.railway\.app|https://.*\.up\.railway\.app",
+    allow_origin_regex=r"https://.*\.railway\.app|https://.*\.up\.railway\.app|https://.*\.onrender\.com|https://.*\.web\.app|https://.*\.firebaseapp\.com",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-app.include_router(health_router)
-app.include_router(thermal_router)
-app.include_router(ingestion_router)
-app.include_router(facility_router)
-app.include_router(facility_pipeline_router)
-app.include_router(association_router)
-app.include_router(classification_router)
-app.include_router(history_router)
-app.include_router(baseline_router)
-app.include_router(anomaly_router)
-app.include_router(risk_router)
-app.include_router(agent_router)
-app.include_router(impact_router)
-app.include_router(landcover_router)
-app.include_router(persistence_router)
-app.include_router(features_router)
-app.include_router(ground_truth_router)
-app.include_router(shadow_router)
-app.include_router(human_review_router)
+all_routers = [
+    health_router,
+    thermal_router,
+    ingestion_router,
+    facility_router,
+    facility_pipeline_router,
+    association_router,
+    classification_router,
+    history_router,
+    baseline_router,
+    anomaly_router,
+    risk_router,
+    agent_router,
+    impact_router,
+    landcover_router,
+    persistence_router,
+    features_router,
+    ground_truth_router,
+    shadow_router,
+    human_review_router,
+]
+
+for r in all_routers:
+    app.include_router(r)
+    app.include_router(r, prefix="/api")
 
 @app.get("/", tags=["Root"])
 def root():

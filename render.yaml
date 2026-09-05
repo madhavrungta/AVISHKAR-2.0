@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: avishkar-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: ENVIRONMENT
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+      - key: DATABASE_URL
+        value: sqlite:///./thermal_observations.db
+      - key: FIRMS_MAP_KEY
+        sync: false          # Set this in Render dashboard → Environment
+      - key: FIRMS_SOURCE
+        value: VIIRS_SNPP_NRT
+      - key: FIRMS_AREA
+        value: "68.0,6.0,97.0,37.0"
+      - key: FIRMS_DAYS
+        value: "1"
+      - key: CORS_ORIGINS
+        value: "https://thermal-detection-9c98b.web.app,https://thermal-detection-9c98b.firebaseapp.com"
