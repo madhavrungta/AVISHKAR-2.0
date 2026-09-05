@@ -1,0 +1,24 @@
+[
+  {
+    "source_record_id": "FSI_WF_2026_KAR_014",
+    "forest_beat": "Western Ghats Ridge Range Beat 4",
+    "latitude": 13.2500,
+    "longitude": 75.1000,
+    "event_start": "2026-08-28T06:00:00Z",
+    "event_end": "2026-08-29T18:00:00Z",
+    "burned_area_ha": 45.0,
+    "confidence": "HIGH",
+    "provenance_url": "https://fsivnagni.gov.in/alerts/FSI_WF_2026_KAR_014"
+  },
+  {
+    "source_record_id": "FSI_WF_2026_OR_088",
+    "forest_beat": "Simlipal Tiger Reserve South Division",
+    "latitude": 21.8500,
+    "longitude": 86.3200,
+    "event_start": "2026-08-29T10:00:00Z",
+    "event_end": "2026-08-30T22:00:00Z",
+    "burned_area_ha": 120.0,
+    "confidence": "HIGH",
+    "provenance_url": "https://fsivnagni.gov.in/alerts/FSI_WF_2026_OR_088"
+  }
+]

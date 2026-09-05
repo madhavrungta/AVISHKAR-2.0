@@ -55,6 +55,10 @@ class FIRMSIngestionResponse(BaseModel):
     raw_file_path: Optional[str] = None
     validation_report: ValidationReport
     safety_message: str
+    requested_days: Optional[int] = 1
+    effective_days: Optional[int] = None
+    fallback_used: bool = False
+    message: Optional[str] = None
 
 class AnalyticsSummary(BaseModel):
     total_observations: int

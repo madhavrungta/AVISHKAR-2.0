@@ -15,6 +15,9 @@ class Settings(BaseSettings):
     FIRMS_BASE_URL: str = "https://firms.modaps.eosdis.nasa.gov/api/area/csv"
     ASSOCIATION_RADIUS_METERS: float = 3000.0
 
+    # Nominatim Enrichment settings
+    NOMINATIM_BASE_URL: str = "https://nominatim.openstreetmap.org"
+
     # Database configuration
     DATABASE_URL: str = "sqlite:///./thermal_observations.db"
     POSTGRES_USER: str = "firms_user"
@@ -26,7 +29,10 @@ class Settings(BaseSettings):
     # Application settings
     ENVIRONMENT: str = "development"
     LOG_LEVEL: str = "INFO"
-    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173"
+    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174"
+
+    # ML Classifier Shadow Mode Feature Flag (Safe default: False)
+    ML_CLASSIFIER_SHADOW_MODE: bool = False
 
     model_config = SettingsConfigDict(
         env_file=".env",

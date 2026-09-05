@@ -63,3 +63,12 @@ Thumbs.db
 *.sqlite
 *.sqlite3
 
+# Log files (some can be very large)
+*.log
+*.err.log
+*.out.log
+
+# Runtime / scratch / generated artifacts
+backend/scratch/
+backend/ml_artifacts/
+

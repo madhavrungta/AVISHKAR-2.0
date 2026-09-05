@@ -264,14 +264,56 @@ class FIRMSDataService:
         db.commit()
 
         try:
+            requested_days = days
+            effective_days: Optional[int] = None
+            fallback_used = False
+            message: Optional[str] = None
+
             if raw_csv_override is not None:
                 csv_content = raw_csv_override
                 raw_path = self.save_raw_data(csv_content, source, batch_id)
+                cleaned_records, validation_report = self.validate_and_clean_data(csv_content)
+                if len(cleaned_records) > 0:
+                    effective_days = requested_days
             else:
-                csv_content, fetch_batch_id = self.fetch_firms_csv(source=source, area=area, days=days, date=date)
+                # Automatic Retry Fallback Sequence: 1 -> 3 -> 5 days
+                windows_to_try = [requested_days]
+                for w in [3, 5]:
+                    if w not in windows_to_try and w > requested_days:
+                        windows_to_try.append(w)
+
+                csv_content = ""
+                raw_path = ""
+                cleaned_records = []
+                validation_report = ValidationReport()
+
+                for window_days in windows_to_try:
+                    curr_csv, _ = self.fetch_firms_csv(source=source, area=area, days=window_days, date=date)
+                    curr_records, curr_report = self.validate_and_clean_data(curr_csv)
+                    
+                    csv_content = curr_csv
+                    cleaned_records = curr_records
+                    validation_report = curr_report
+                    
+                    if len(cleaned_records) > 0:
+                        effective_days = window_days
+                        if window_days != requested_days:
+                            fallback_used = True
+                        break
+
                 raw_path = self.save_raw_data(csv_content, source, batch_id)
 
-            cleaned_records, validation_report = self.validate_and_clean_data(csv_content)
+                if len(cleaned_records) == 0:
+                    fallback_used = True if len(windows_to_try) > 1 else False
+                    effective_days = None
+                    message = "No thermal anomalies were detected in the selected area during the last 5 days."
+                elif fallback_used:
+                    if effective_days == 3:
+                        message = "No new detections in the last 24 hours. Recent observations from the last 3 days were loaded."
+                    elif effective_days == 5:
+                        message = "No new detections in the last 24 hours or 3 days. Expanded historical observations from the last 5 days were loaded."
+                    else:
+                        message = f"No new detections in the initial window ({requested_days} days). Expanded window ({effective_days} days) observations were loaded."
 
             db_batch.records_received = validation_report.total_records
             db_batch.records_valid = validation_report.valid_records
@@ -318,7 +360,7 @@ class FIRMSDataService:
             db_batch.completed_at = datetime.datetime.utcnow()
             db.commit()
             
-            logger.info(f"Ingested {ingested_count} thermal observations into PostGIS database (Batch ID: {batch_id}).")
+            logger.info(f"Ingested {ingested_count} thermal observations into database (Batch ID: {batch_id}, effective_days: {effective_days}).")
 
             safety_status = settings.get_firms_key_safety_status()
 
@@ -329,7 +371,11 @@ class FIRMSDataService:
                 records_ingested=ingested_count,
                 raw_file_path=raw_path,
                 validation_report=validation_report,
-                safety_message=safety_status["message"]
+                safety_message=safety_status["message"],
+                requested_days=requested_days,
+                effective_days=effective_days,
+                fallback_used=fallback_used,
+                message=message
             )
         except Exception as exc:
             db_batch.status = "failed"

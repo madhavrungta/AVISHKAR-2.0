@@ -82,3 +82,63 @@ def test_ingest_firms_data_mock(db_session):
     db_records = db_session.query(ThermalObservation).all()
     assert len(db_records) == 2
     assert db_records[0].source == "VIIRS_SNPP_NRT"
+
+def test_firms_ingestion_fallback_sequence(db_session, monkeypatch):
+    service = FIRMSDataService(map_key="test_key_123456789")
+    
+    empty_csv = "latitude,longitude,bright_ti4,scan,track,acq_date,acq_time,satellite,instrument,confidence,version,bright_ti5,frp,daynight\n"
+    
+    # Case 1: days=1 returns 0 -> days=3 returns valid records
+    calls = []
+    def mock_fetch(source, area, days, date=None):
+        calls.append(days)
+        if days == 1:
+            return empty_csv, "batch_1"
+        elif days == 3:
+            return SAMPLE_VALID_FIRMS_CSV, "batch_3"
+        return empty_csv, "batch_5"
+
+    monkeypatch.setattr(service, "fetch_firms_csv", mock_fetch)
+
+    res = service.ingest_firms_data(db=db_session, source="VIIRS_SNPP_NRT", area="68,6,98,36", days=1)
+    assert calls == [1, 3]
+    assert res.status == "success"
+    assert res.records_ingested == 2
+    assert res.requested_days == 1
+    assert res.effective_days == 3
+    assert res.fallback_used is True
+    assert "last 3 days" in res.message
+
+    # Case 2: days=1 and days=3 return 0 -> days=5 returns valid records
+    calls.clear()
+    def mock_fetch_5(source, area, days, date=None):
+        calls.append(days)
+        if days in [1, 3]:
+            return empty_csv, f"batch_{days}"
+        return SAMPLE_VALID_FIRMS_CSV, "batch_5"
+
+    monkeypatch.setattr(service, "fetch_firms_csv", mock_fetch_5)
+
+    res5 = service.ingest_firms_data(db=db_session, source="VIIRS_SNPP_NRT", area="68,6,98,36", days=1)
+    assert calls == [1, 3, 5]
+    assert res5.effective_days == 5
+    assert res5.fallback_used is True
+    assert "last 5 days" in res5.message
+
+    # Case 3: All 3 return 0 records
+    calls.clear()
+    def mock_fetch_zero(source, area, days, date=None):
+        calls.append(days)
+        return empty_csv, f"batch_{days}"
+
+    monkeypatch.setattr(service, "fetch_firms_csv", mock_fetch_zero)
+
+    res_zero = service.ingest_firms_data(db=db_session, source="VIIRS_SNPP_NRT", area="68,6,98,36", days=1)
+    assert calls == [1, 3, 5]
+    assert res_zero.status == "success"
+    assert res_zero.records_ingested == 0
+    assert res_zero.requested_days == 1
+    assert res_zero.effective_days is None
+    assert res_zero.fallback_used is True
+    assert "No thermal anomalies were detected" in res_zero.message
+

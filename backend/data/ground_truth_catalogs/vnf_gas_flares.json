@@ -1,0 +1,38 @@
+[
+  {
+    "source_record_id": "VNF_INDIA_FLARE_001",
+    "site_name": "Mangalore Refinery Flare Stack 1",
+    "latitude": 12.9755,
+    "longitude": 74.8355,
+    "event_start": "2026-08-27T00:00:00Z",
+    "event_end": "2026-08-31T23:59:59Z",
+    "radiant_heat_mw": 145.2,
+    "temperature_k": 1820.0,
+    "confidence": "HIGH",
+    "provenance_url": "https://eogdata.mines.edu/products/vnf/VNF_INDIA_FLARE_001"
+  },
+  {
+    "source_record_id": "VNF_INDIA_FLARE_002",
+    "site_name": "Jamnagar Petrochemical Flare North",
+    "latitude": 22.3552,
+    "longitude": 69.8653,
+    "event_start": "2026-08-27T00:00:00Z",
+    "event_end": "2026-08-31T23:59:59Z",
+    "radiant_heat_mw": 210.8,
+    "temperature_k": 1950.0,
+    "confidence": "HIGH",
+    "provenance_url": "https://eogdata.mines.edu/products/vnf/VNF_INDIA_FLARE_002"
+  },
+  {
+    "source_record_id": "VNF_INDIA_FLARE_003",
+    "site_name": "Mumbai Offshore Platform High Alpha",
+    "latitude": 19.0022,
+    "longitude": 72.8983,
+    "event_start": "2026-08-27T00:00:00Z",
+    "event_end": "2026-08-31T23:59:59Z",
+    "radiant_heat_mw": 180.5,
+    "temperature_k": 1880.0,
+    "confidence": "HIGH",
+    "provenance_url": "https://eogdata.mines.edu/products/vnf/VNF_INDIA_FLARE_003"
+  }
+]

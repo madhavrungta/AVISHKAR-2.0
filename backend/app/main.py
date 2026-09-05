@@ -16,6 +16,13 @@ from app.api.baseline import router as baseline_router
 from app.api.anomaly import router as anomaly_router
 from app.api.risk import router as risk_router
 from app.api.agent_route import router as agent_router
+from app.api.impact import router as impact_router
+from app.api.landcover import router as landcover_router
+from app.api.persistence import router as persistence_router
+from app.api.features import router as features_router
+from app.api.ground_truth import router as ground_truth_router
+from app.api.shadow import router as shadow_router
+from app.api.human_review import router as human_review_router
 
 logger = logging.getLogger("firms_app.main")
 
@@ -32,10 +39,9 @@ app = FastAPI(
     description=(
         "Project SIH 26162 (NTRO) - NASA FIRMS Satellite Thermal Anomaly Ingestion & Processing Engine.\n\n"
         "**SCIENTIFIC NOTICE**: NASA FIRMS points represent **thermal anomalies / active-fire detections**, "
-        "NOT confirmed industrial fires. The engine processes satellite observations through geospatial context "
-        "and AI baseline modeling to establish likely sources."
+        "not confirmed fires or damage."
     ),
-    version="0.8.0 (Phase 8)",
+    version="2.0.0",
     docs_url="/docs",
     redoc_url="/redoc",
     lifespan=lifespan
@@ -45,6 +51,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins_list,
+    allow_origin_regex=r"https://.*\.railway\.app|https://.*\.up\.railway\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -62,6 +69,13 @@ app.include_router(baseline_router)
 app.include_router(anomaly_router)
 app.include_router(risk_router)
 app.include_router(agent_router)
+app.include_router(impact_router)
+app.include_router(landcover_router)
+app.include_router(persistence_router)
+app.include_router(features_router)
+app.include_router(ground_truth_router)
+app.include_router(shadow_router)
+app.include_router(human_review_router)
 
 @app.get("/", tags=["Root"])
 def root():

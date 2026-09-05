@@ -10,6 +10,10 @@ from app.models.ingestion_batch import IngestionBatch
 from app.models.facility import Facility
 from app.models.facility_observation import FacilityObservation
 from app.models.facility_baseline import FacilityBaseline as FacilityBaselineModel
+from app.models.healthcare_facility import HealthcareFacility
+from app.models.transportation_entity import TransportationEntity
+from app.models.shadow_prediction import MLShadowPrediction
+from app.models.human_review import HumanReviewCase, HumanReviewDecision, HumanAdjudicationRecord
 
 __all__ = [
     "ThermalObservation", 
@@ -23,5 +27,11 @@ __all__ = [
     "IngestionBatch",
     "Facility",
     "FacilityObservation",
-    "FacilityBaselineModel"
+    "FacilityBaselineModel",
+    "HealthcareFacility",
+    "TransportationEntity",
+    "MLShadowPrediction",
+    "HumanReviewCase",
+    "HumanReviewDecision",
+    "HumanAdjudicationRecord"
 ]
