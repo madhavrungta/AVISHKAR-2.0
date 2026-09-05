@@ -1,0 +1,83 @@
+{
+  "dataset_manifest_version": "4F.10",
+  "freeze_timestamp": "2026-09-05T18:20:43.376286+00:00",
+  "status": "IMMUTABLE_FROZEN",
+  "total_real_observations": 750,
+  "independent_physical_event_clusters": 250,
+  "target_classes": [
+    "INDUSTRIAL_FIRE",
+    "GAS_FLARE",
+    "AGRICULTURAL_BURNING",
+    "MINING_ACTIVITY",
+    "WILDFIRE"
+  ],
+  "feature_schema": {
+    "feature_count": 39,
+    "feature_names": [
+      "background_temperature",
+      "baseline_frp_p50",
+      "baseline_frp_p95",
+      "baseline_frp_p99",
+      "brightness_temperature",
+      "count_energy_entities_1km",
+      "count_energy_entities_5km",
+      "count_industrial_facilities_1km",
+      "count_industrial_facilities_5km",
+      "daynight",
+      "frp",
+      "frp_multiplier_ratio",
+      "is_anomaly_candidate",
+      "is_bare_land",
+      "is_built_up",
+      "is_cropland",
+      "is_grassland",
+      "is_shrubland",
+      "is_tree_cover",
+      "is_water",
+      "land_cover_class",
+      "land_cover_code",
+      "latitude",
+      "longitude",
+      "mean_distance_m",
+      "mean_frp",
+      "nearest_energy_distance_m",
+      "nearest_facility_type",
+      "nearest_industrial_distance_m",
+      "nighttime_ratio",
+      "recurrence_count",
+      "recurrence_frequency",
+      "scan",
+      "spatial_stddev_m",
+      "temporal_span_days",
+      "track",
+      "unique_detection_dates",
+      "unique_satellite_passes",
+      "unique_satellites"
+    ],
+    "schema_version": "4C.1"
+  },
+  "partitions": {
+    "training_partition": {
+      "observation_count": 600,
+      "cluster_count": 201
+    },
+    "independent_test_partition": {
+      "observation_count": 150,
+      "cluster_count": 54
+    }
+  },
+  "model_specification": {
+    "algorithm": "GradientBoostingClassifier",
+    "n_estimators": 100,
+    "max_depth": 4,
+    "learning_rate": 0.05,
+    "random_state": 42
+  },
+  "provenance_authorities": [
+    "MOEFCC Major Accident Hazard Registry (Industrial)",
+    "NOAA VIIRS Nightfire VNF v3.0 (Gas Flare)",
+    "ICAR-IARI CREAMS Crop Monitoring Program (Agricultural Burning)",
+    "ISRO Bhuvan / IBM Mining Quarry Registry (Mining)",
+    "FSI Van Agni 2.0 Forest Fire System (Wildfire)"
+  ]
+}

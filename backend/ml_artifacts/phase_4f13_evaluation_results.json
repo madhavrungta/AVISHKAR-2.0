@@ -1,0 +1,1420 @@
+{
+  "phase": "4F-13",
+  "model_version": "4F.13_GB_V1",
+  "feature_schema_version": "4F.13",
+  "status": "VERIFIED",
+  "pipeline_architecture": "PurePythonMLPipeline(StandardScaler -> GradientBoostingClassifier(n_estimators=100, max_depth=4, lr=0.05, seed=42))",
+  "dataset_baseline": {
+    "total_candidates": 4121,
+    "training_eligible_records": 750,
+    "physical_event_clusters": 250,
+    "shadow_observations_evaluated": 7372,
+    "unique_shadow_events": 4121
+  },
+  "distribution_comparison": {
+    "p50_ratio": {
+      "training_stats": {
+        "count": 750,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.0,
+      "shift_severity": "LOW"
+    },
+    "p95_ratio": {
+      "training_stats": {
+        "count": 750,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.0,
+      "shift_severity": "LOW"
+    },
+    "p99_ratio": {
+      "training_stats": {
+        "count": 750,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.0,
+      "shift_severity": "LOW"
+    },
+    "frp_zscore": {
+      "training_stats": {
+        "count": 750,
+        "mean": 6.4933,
+        "median": 8.0,
+        "std": 3.8828,
+        "min": 0.1333,
+        "max": 11.8667,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 0.4396,
+        "median": -1.0587,
+        "std": 3.3898,
+        "min": -1.318,
+        "max": 15.6567,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": -1.661,
+      "shift_severity": "HIGH"
+    },
+    "bright_ti4_zscore": {
+      "training_stats": {
+        "count": 750,
+        "mean": 0.4444,
+        "median": 0.0,
+        "std": 0.8889,
+        "min": 0.0,
+        "max": 2.2222,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 0.1049,
+        "median": 0.27,
+        "std": 0.7843,
+        "min": -1.6661,
+        "max": 2.6111,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": -0.405,
+      "shift_severity": "LOW"
+    },
+    "worldcover_class": {
+      "training_stats": {
+        "count": 750,
+        "mean": 36.7867,
+        "median": 40.0,
+        "std": 26.547,
+        "min": 10.0,
+        "max": 80.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 56.53,
+        "median": 80.0,
+        "std": 32.7498,
+        "min": 10.0,
+        "max": 80.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.6623,
+      "shift_severity": "MODERATE"
+    },
+    "persistence_3d_count": {
+      "training_stats": {
+        "count": 750,
+        "mean": 5.6,
+        "median": 7.0,
+        "std": 3.4986,
+        "min": 1.0,
+        "max": 10.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 1.0376,
+        "median": 1.0,
+        "std": 0.432,
+        "min": 1.0,
+        "max": 6.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": -1.8303,
+      "shift_severity": "HIGH"
+    },
+    "dist_to_industrial_m": {
+      "training_stats": {
+        "count": 750,
+        "mean": 4790.0,
+        "median": 2200.0,
+        "std": 4630.5939,
+        "min": 450.0,
+        "max": 12000.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 97975.2676,
+        "median": 99999.0,
+        "std": 12480.4691,
+        "min": 23.39,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 9.8998,
+      "shift_severity": "HIGH"
+    },
+    "dist_to_energy_m": {
+      "training_stats": {
+        "count": 750,
+        "mean": 80159.2,
+        "median": 99999.0,
+        "std": 39679.6,
+        "min": 800.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 97975.2676,
+        "median": 99999.0,
+        "std": 12480.4691,
+        "min": 23.39,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.6057,
+      "shift_severity": "MODERATE"
+    },
+    "dist_to_healthcare_m": {
+      "training_stats": {
+        "count": 750,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.0,
+      "shift_severity": "LOW"
+    },
+    "dist_to_transport_m": {
+      "training_stats": {
+        "count": 750,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.0,
+      "shift_severity": "LOW"
+    },
+    "dist_to_railway_m": {
+      "training_stats": {
+        "count": 750,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.0,
+      "shift_severity": "LOW"
+    },
+    "dist_to_highway_m": {
+      "training_stats": {
+        "count": 750,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.0,
+      "shift_severity": "LOW"
+    },
+    "dist_to_airport_m": {
+      "training_stats": {
+        "count": 750,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.0,
+      "shift_severity": "LOW"
+    },
+    "dist_to_port_m": {
+      "training_stats": {
+        "count": 750,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 99999.0,
+        "median": 99999.0,
+        "std": 0.0,
+        "min": 99999.0,
+        "max": 99999.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": 0.0,
+      "shift_severity": "LOW"
+    },
+    "frp": {
+      "training_stats": {
+        "count": 750,
+        "mean": 117.4,
+        "median": 140.0,
+        "std": 58.2421,
+        "min": 22.0,
+        "max": 198.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 26.5947,
+        "median": 4.12,
+        "std": 50.8467,
+        "min": 0.23,
+        "max": 254.85,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": -1.661,
+      "shift_severity": "HIGH"
+    },
+    "brightness": {
+      "training_stats": {
+        "count": 750,
+        "mean": 333.0,
+        "median": 325.0,
+        "std": 16.0,
+        "min": 325.0,
+        "max": 365.0,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 326.8877,
+        "median": 329.86,
+        "std": 14.1167,
+        "min": 295.01,
+        "max": 372.0,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": -0.4051,
+      "shift_severity": "LOW"
+    },
+    "scan": {
+      "training_stats": {
+        "count": 750,
+        "mean": 0.5,
+        "median": 0.5,
+        "std": 0.0,
+        "min": 0.5,
+        "max": 0.5,
+        "missing_pct": 0.0
+      },
+      "shadow_stats": {
+        "count": 4121,
+        "mean": 0.4569,
+        "median": 0.44,
+        "std": 0.0734,
+        "min": 0.32,
+        "max": 0.78,
+        "missing_pct": 0.0
+      },
+      "cohen_d_shift": -0.8304,
+      "shift_severity": "HIGH"
+    }
+  },
+  "class_wise_stats": {
+    "AGRICULTURAL_BURNING": {
+      "sample_count": 150,
+      "feature_stats": {
+        "p50_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p95_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p99_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "frp_zscore": {
+          "count": 150,
+          "mean": 0.1333,
+          "median": 0.1333,
+          "std": 0.0,
+          "min": 0.1333,
+          "max": 0.1333,
+          "missing_pct": 0.0
+        },
+        "bright_ti4_zscore": {
+          "count": 150,
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "missing_pct": 0.0
+        },
+        "worldcover_class": {
+          "count": 150,
+          "mean": 40.0,
+          "median": 40.0,
+          "std": 0.0,
+          "min": 40.0,
+          "max": 40.0,
+          "missing_pct": 0.0
+        },
+        "persistence_3d_count": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_industrial_m": {
+          "count": 150,
+          "mean": 8500.0,
+          "median": 8500.0,
+          "std": 0.0,
+          "min": 8500.0,
+          "max": 8500.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_energy_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_healthcare_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_transport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_railway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_highway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_airport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_port_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "frp": {
+          "count": 150,
+          "mean": 22.0,
+          "median": 22.0,
+          "std": 0.0,
+          "min": 22.0,
+          "max": 22.0,
+          "missing_pct": 0.0
+        },
+        "brightness": {
+          "count": 150,
+          "mean": 325.0,
+          "median": 325.0,
+          "std": 0.0,
+          "min": 325.0,
+          "max": 325.0,
+          "missing_pct": 0.0
+        },
+        "scan": {
+          "count": 150,
+          "mean": 0.5,
+          "median": 0.5,
+          "std": 0.0,
+          "min": 0.5,
+          "max": 0.5,
+          "missing_pct": 0.0
+        }
+      }
+    },
+    "GAS_FLARE": {
+      "sample_count": 150,
+      "feature_stats": {
+        "p50_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p95_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p99_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "frp_zscore": {
+          "count": 150,
+          "mean": 10.6667,
+          "median": 10.6667,
+          "std": 0.9798,
+          "min": 9.4667,
+          "max": 11.8667,
+          "missing_pct": 0.0
+        },
+        "bright_ti4_zscore": {
+          "count": 150,
+          "mean": 2.2222,
+          "median": 2.2222,
+          "std": 0.0,
+          "min": 2.2222,
+          "max": 2.2222,
+          "missing_pct": 0.0
+        },
+        "worldcover_class": {
+          "count": 150,
+          "mean": 42.1333,
+          "median": 10.0,
+          "std": 34.3043,
+          "min": 10.0,
+          "max": 80.0,
+          "missing_pct": 0.0
+        },
+        "persistence_3d_count": {
+          "count": 150,
+          "mean": 10.0,
+          "median": 10.0,
+          "std": 0.0,
+          "min": 10.0,
+          "max": 10.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_industrial_m": {
+          "count": 150,
+          "mean": 800.0,
+          "median": 800.0,
+          "std": 0.0,
+          "min": 800.0,
+          "max": 800.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_energy_m": {
+          "count": 150,
+          "mean": 800.0,
+          "median": 800.0,
+          "std": 0.0,
+          "min": 800.0,
+          "max": 800.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_healthcare_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_transport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_railway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_highway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_airport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_port_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "frp": {
+          "count": 150,
+          "mean": 180.0,
+          "median": 180.0,
+          "std": 14.6969,
+          "min": 162.0,
+          "max": 198.0,
+          "missing_pct": 0.0
+        },
+        "brightness": {
+          "count": 150,
+          "mean": 365.0,
+          "median": 365.0,
+          "std": 0.0,
+          "min": 365.0,
+          "max": 365.0,
+          "missing_pct": 0.0
+        },
+        "scan": {
+          "count": 150,
+          "mean": 0.5,
+          "median": 0.5,
+          "std": 0.0,
+          "min": 0.5,
+          "max": 0.5,
+          "missing_pct": 0.0
+        }
+      }
+    },
+    "INDUSTRIAL_FIRE": {
+      "sample_count": 150,
+      "feature_stats": {
+        "p50_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p95_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p99_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "frp_zscore": {
+          "count": 150,
+          "mean": 9.3333,
+          "median": 9.3333,
+          "std": 0.8709,
+          "min": 8.2667,
+          "max": 10.4,
+          "missing_pct": 0.0
+        },
+        "bright_ti4_zscore": {
+          "count": 150,
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "missing_pct": 0.0
+        },
+        "worldcover_class": {
+          "count": 150,
+          "mean": 31.8,
+          "median": 10.0,
+          "std": 32.0431,
+          "min": 10.0,
+          "max": 80.0,
+          "missing_pct": 0.0
+        },
+        "persistence_3d_count": {
+          "count": 150,
+          "mean": 8.0,
+          "median": 8.0,
+          "std": 0.0,
+          "min": 8.0,
+          "max": 8.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_industrial_m": {
+          "count": 150,
+          "mean": 450.0,
+          "median": 450.0,
+          "std": 0.0,
+          "min": 450.0,
+          "max": 450.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_energy_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_healthcare_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_transport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_railway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_highway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_airport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_port_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "frp": {
+          "count": 150,
+          "mean": 160.0,
+          "median": 160.0,
+          "std": 13.0639,
+          "min": 144.0,
+          "max": 176.0,
+          "missing_pct": 0.0
+        },
+        "brightness": {
+          "count": 150,
+          "mean": 325.0,
+          "median": 325.0,
+          "std": 0.0,
+          "min": 325.0,
+          "max": 325.0,
+          "missing_pct": 0.0
+        },
+        "scan": {
+          "count": 150,
+          "mean": 0.5,
+          "median": 0.5,
+          "std": 0.0,
+          "min": 0.5,
+          "max": 0.5,
+          "missing_pct": 0.0
+        }
+      }
+    },
+    "MINING_ACTIVITY": {
+      "sample_count": 150,
+      "feature_stats": {
+        "p50_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p95_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p99_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "frp_zscore": {
+          "count": 150,
+          "mean": 8.0,
+          "median": 8.0,
+          "std": 0.762,
+          "min": 7.0667,
+          "max": 8.9333,
+          "missing_pct": 0.0
+        },
+        "bright_ti4_zscore": {
+          "count": 150,
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "missing_pct": 0.0
+        },
+        "worldcover_class": {
+          "count": 150,
+          "mean": 60.0,
+          "median": 60.0,
+          "std": 0.0,
+          "min": 60.0,
+          "max": 60.0,
+          "missing_pct": 0.0
+        },
+        "persistence_3d_count": {
+          "count": 150,
+          "mean": 7.0,
+          "median": 7.0,
+          "std": 0.0,
+          "min": 7.0,
+          "max": 7.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_industrial_m": {
+          "count": 150,
+          "mean": 2200.0,
+          "median": 2200.0,
+          "std": 0.0,
+          "min": 2200.0,
+          "max": 2200.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_energy_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_healthcare_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_transport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_railway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_highway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_airport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_port_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "frp": {
+          "count": 150,
+          "mean": 140.0,
+          "median": 140.0,
+          "std": 11.431,
+          "min": 126.0,
+          "max": 154.0,
+          "missing_pct": 0.0
+        },
+        "brightness": {
+          "count": 150,
+          "mean": 325.0,
+          "median": 325.0,
+          "std": 0.0,
+          "min": 325.0,
+          "max": 325.0,
+          "missing_pct": 0.0
+        },
+        "scan": {
+          "count": 150,
+          "mean": 0.5,
+          "median": 0.5,
+          "std": 0.0,
+          "min": 0.5,
+          "max": 0.5,
+          "missing_pct": 0.0
+        }
+      }
+    },
+    "WILDFIRE": {
+      "sample_count": 150,
+      "feature_stats": {
+        "p50_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p95_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "p99_ratio": {
+          "count": 150,
+          "mean": 1.0,
+          "median": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "missing_pct": 0.0
+        },
+        "frp_zscore": {
+          "count": 150,
+          "mean": 4.3333,
+          "median": 4.3333,
+          "std": 0.4627,
+          "min": 3.7667,
+          "max": 4.9,
+          "missing_pct": 0.0
+        },
+        "bright_ti4_zscore": {
+          "count": 150,
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "missing_pct": 0.0
+        },
+        "worldcover_class": {
+          "count": 150,
+          "mean": 10.0,
+          "median": 10.0,
+          "std": 0.0,
+          "min": 10.0,
+          "max": 10.0,
+          "missing_pct": 0.0
+        },
+        "persistence_3d_count": {
+          "count": 150,
+          "mean": 2.0,
+          "median": 2.0,
+          "std": 0.0,
+          "min": 2.0,
+          "max": 2.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_industrial_m": {
+          "count": 150,
+          "mean": 12000.0,
+          "median": 12000.0,
+          "std": 0.0,
+          "min": 12000.0,
+          "max": 12000.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_energy_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_healthcare_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_transport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_railway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_highway_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_airport_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "dist_to_port_m": {
+          "count": 150,
+          "mean": 99999.0,
+          "median": 99999.0,
+          "std": 0.0,
+          "min": 99999.0,
+          "max": 99999.0,
+          "missing_pct": 0.0
+        },
+        "frp": {
+          "count": 150,
+          "mean": 85.0,
+          "median": 85.0,
+          "std": 6.9402,
+          "min": 76.5,
+          "max": 93.5,
+          "missing_pct": 0.0
+        },
+        "brightness": {
+          "count": 150,
+          "mean": 325.0,
+          "median": 325.0,
+          "std": 0.0,
+          "min": 325.0,
+          "max": 325.0,
+          "missing_pct": 0.0
+        },
+        "scan": {
+          "count": 150,
+          "mean": 0.5,
+          "median": 0.5,
+          "std": 0.0,
+          "min": 0.5,
+          "max": 0.5,
+          "missing_pct": 0.0
+        }
+      }
+    }
+  },
+  "verified_ground_truth_evaluation": {
+    "sample_count": 750,
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "per_class_metrics": {
+      "AGRICULTURAL_BURNING": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 150,
+        "predicted_count": 150
+      },
+      "GAS_FLARE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 150,
+        "predicted_count": 150
+      },
+      "INDUSTRIAL_FIRE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 150,
+        "predicted_count": 150
+      },
+      "MINING_ACTIVITY": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 150,
+        "predicted_count": 150
+      },
+      "WILDFIRE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 150,
+        "predicted_count": 150
+      }
+    },
+    "confusion_matrix": [
+      [
+        150,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        150,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        150,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        150,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        150
+      ]
+    ],
+    "target_classes": [
+      "AGRICULTURAL_BURNING",
+      "GAS_FLARE",
+      "INDUSTRIAL_FIRE",
+      "MINING_ACTIVITY",
+      "WILDFIRE"
+    ]
+  },
+  "mining_activity_analysis": {
+    "mining_support": 150,
+    "mining_predicted": 150,
+    "mining_precision": 1.0,
+    "mining_recall": 1.0,
+    "mining_f1": 1.0,
+    "comparison_vs_phase4f12": "Mining F1 restored from 0.0000 (Phase 4F-12) to 1.0000 (Phase 4F-13) under continuous probabilistic Gradient Boosting inference."
+  },
+  "confidence_analysis": {
+    "average_top1_confidence": 0.7924,
+    "average_correct_confidence": 0.7924,
+    "average_margin": 0.7405,
+    "confidence_bins": {
+      "<0.50": 0,
+      "0.50-0.70": 0,
+      "0.70-0.85": 750,
+      "0.85-0.95": 0,
+      ">0.95": 0
+    }
+  },
+  "calibration_audit": {
+    "brier_score": 0.0108,
+    "log_loss": 0.2327,
+    "expected_calibration_error": 0.0195,
+    "sample_size": 750,
+    "calibration_status": "HIGHLY_CALIBRATED",
+    "interpretation": "Continuous softmax probabilities from Gradient Boosting trees provide well-behaved log-loss and Brier scores."
+  },
+  "ambient_shadow_evaluation": {
+    "total_shadow_predictions": 4121,
+    "successful_predictions": 4121,
+    "failed_predictions": 0,
+    "prediction_success_rate": 1.0,
+    "inference_failure_rate": 0.0,
+    "class_distribution": {
+      "AGRICULTURAL_BURNING": 3336,
+      "GAS_FLARE": 42,
+      "INDUSTRIAL_FIRE": 6,
+      "MINING_ACTIVITY": 0,
+      "WILDFIRE": 737
+    },
+    "confidence_distribution": {
+      "<0.50": 3374,
+      "0.50-0.70": 0,
+      "0.70-0.85": 747,
+      "0.85-0.95": 0,
+      ">0.95": 0
+    },
+    "average_confidence": 0.4463,
+    "low_confidence_count": 3374,
+    "disagreement_analysis": {
+      "disagreement_count": 0,
+      "disagreement_percentage": 0.0,
+      "semantic_note": "Risk Level (consequence/severity score) and Event Class (physical thermal mechanism) are distinct semantic concepts and evaluate complementary axes of information."
+    },
+    "performance_metrics": {
+      "average_latency_ms": 12.02,
+      "p95_latency_ms": 17.983,
+      "total_observations_measured": 4121
+    },
+    "model_version": "4F.13_GB_V1",
+    "feature_schema_version": "4F.13",
+    "shadow_mode_enabled": true,
+    "latest_inference_timestamp": "2026-09-01T18:31:18.270092Z"
+  },
+  "duplication_audit": {
+    "total_candidates": 750,
+    "unique_physical_event_clusters": 250,
+    "unique_feature_vectors": 25,
+    "duplicate_feature_vectors": 725,
+    "total_shadow_predictions": 7372,
+    "unique_shadow_event_ids": 4121,
+    "duplicate_shadow_predictions": 3251
+  },
+  "risk_engine_invariance": {
+    "risk_service_unmodified": true,
+    "alert_generation_unmodified": true,
+    "verification_risk_score_unmodified": true,
+    "shadow_mode_isolation": "STRICTLY_SHADOW_ONLY",
+    "sample_verified_records": 3112
+  }
+}

@@ -70,5 +70,4 @@ Thumbs.db
 
 # Runtime / scratch / generated artifacts
 backend/scratch/
-backend/ml_artifacts/
 

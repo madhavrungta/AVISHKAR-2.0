@@ -1,0 +1,75 @@
+{
+  "dataset_version": "4F.4",
+  "total_real_observations": 750,
+  "ablation_results": {
+    "FULL_MULTI_MODAL": {
+      "macro_f1_mean": 0.8444,
+      "accuracy_mean": 0.8505,
+      "feature_count": 30
+    },
+    "WITHOUT_FACILITY_DISTANCES": {
+      "macro_f1_mean": 0.8444,
+      "accuracy_mean": 0.8505,
+      "feature_count": 30
+    },
+    "THERMAL_ONLY": {
+      "macro_f1_mean": 1.0,
+      "accuracy_mean": 1.0,
+      "feature_count": 2
+    },
+    "THERMAL_LAND_COVER": {
+      "macro_f1_mean": 1.0,
+      "accuracy_mean": 1.0,
+      "feature_count": 2
+    },
+    "THERMAL_PERSISTENCE": {
+      "macro_f1_mean": 1.0,
+      "accuracy_mean": 1.0,
+      "feature_count": 2
+    },
+    "CONTEXT_WITHOUT_THERMAL": {
+      "macro_f1_mean": 0.8179,
+      "accuracy_mean": 0.8253,
+      "feature_count": 28
+    }
+  },
+  "calibration_stats": {
+    "brier_score_mean": 0.0425,
+    "expected_calibration_error": 0.0421,
+    "log_loss_mean": 0.1852
+  },
+  "error_count": 112,
+  "geographic_results": {
+    "train_observations": 666,
+    "val_observations": 84,
+    "held_out_region": "NORTH_INDIA_LAT_GT_28",
+    "geographic_accuracy": 0.8095,
+    "geographic_macro_f1": 0.8001
+  },
+  "temporal_results": {
+    "train_observations": 225,
+    "val_observations": 525,
+    "chronological_cutoff": "2026-02-01",
+    "temporal_accuracy": 0.3314,
+    "temporal_macro_f1": 0.2841
+  },
+  "seed_results": {
+    "seeds_tested": [
+      42,
+      123,
+      2024,
+      2025,
+      2026
+    ],
+    "macro_f1_mean": 0.8347,
+    "macro_f1_std": 0.0189,
+    "macro_f1_min": 0.8076,
+    "macro_f1_max": 0.8578
+  },
+  "spatial_results": {
+    "spatial_perturbation_distance_m": 50.0,
+    "prediction_stability_rate": 0.9627
+  },
+  "artifact_status": "EXPERIMENTAL_ONLY",
+  "created_at": "2026-09-05T18:12:35.162368"
+}

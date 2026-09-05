@@ -1,0 +1,30 @@
+{
+  "phase": "4F-22D",
+  "phase_name": "SIH Presentation Deployment",
+  "platform": "Railway",
+  "environment": "staging_demo",
+  "frontend": "frontend-v2",
+  "backend": "FastAPI",
+  "database": "PostgreSQL / SQLite (Demo Isolated)",
+  "firms_mode": "NASA_FIRMS_PERSISTED_AND_LIVE_ENABLED",
+  "ml_model_version": "4F.13_GB_V1",
+  "ml_shadow_only": true,
+  "risk_engine_authoritative": true,
+  "risk_engine_invariant": true,
+  "model_integrity": true,
+  "frontend_build": "PASS",
+  "backend_health": "PASS",
+  "database_health": "PASS",
+  "e2e_demo": "PASS",
+  "4f22_trial_status": "IN_PROGRESS",
+  "production_deployment_authorized": false,
+  "public_demo_deployed": false,
+  "public_url": "NOT_ESTABLISHED",
+  "known_limitations": [
+    "Optical Sentinel-2/Landsat automated verification is future work (explicitly labeled unavailable in AI evidence audit)",
+    "NASA FIRMS detections represent radiative thermal anomalies, not confirmed fires",
+    "ML model operates strictly in advisory shadow logging mode; RiskService remains sole authoritative operational engine",
+    "Demo environment and database are strictly isolated from Phase 4F-22 14-day live staging trial"
+  ],
+  "gate": "GATE A — PRESENTATION DEPLOYMENT READY"
+}

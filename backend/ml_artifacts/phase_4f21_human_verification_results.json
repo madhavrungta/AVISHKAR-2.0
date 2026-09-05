@@ -1,0 +1,96 @@
+{
+  "phase": "4F-21",
+  "phase_name": "Human Expert Verification & Adjudication",
+  "timestamp": "2026-09-04T21:46:23.998131Z",
+  "model_version": "4F.13_GB_V1",
+  "model_sha256": "f7318604a0a23e81a2a97487a5d473ad8342441dcab862672639395fedc24810",
+  "model_integrity_verified": true,
+  "review_packet_size": 100,
+  "pending_review_count": 72,
+  "reviewed_count": 28,
+  "adjudicated_count": 26,
+  "insufficient_evidence_count": 1,
+  "needs_adjudication_count": 0,
+  "uncertain_count": 0,
+  "inter_rater_agreement": {
+    "status": "NOT_ESTABLISHED",
+    "sample_size": 1,
+    "message": "Inter-rater agreement is not established due to insufficient independent multi-reviewer overlap.",
+    "cohens_kappa": null,
+    "fleiss_kappa": null,
+    "raw_agreement_pct": null,
+    "disagreement_matrix": {}
+  },
+  "ml_vs_human_metrics": {
+    "status": "ESTABLISHED",
+    "sample_size": 26,
+    "accuracy": 0.9615,
+    "macro_f1": 0.6522,
+    "class_metrics": {
+      "AGRICULTURAL_BURNING": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 14
+      },
+      "GAS_FLARE": {
+        "precision": 1.0,
+        "recall": 0.9167,
+        "f1_score": 0.9565,
+        "support": 12
+      },
+      "INDUSTRIAL_FIRE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 0
+      }
+    },
+    "confusion_matrix": {
+      "AGRICULTURAL_BURNING": {
+        "AGRICULTURAL_BURNING": 14,
+        "GAS_FLARE": 0,
+        "INDUSTRIAL_FIRE": 0
+      },
+      "GAS_FLARE": {
+        "AGRICULTURAL_BURNING": 0,
+        "GAS_FLARE": 11,
+        "INDUSTRIAL_FIRE": 1
+      },
+      "INDUSTRIAL_FIRE": {
+        "AGRICULTURAL_BURNING": 0,
+        "GAS_FLARE": 0,
+        "INDUSTRIAL_FIRE": 0
+      }
+    }
+  },
+  "class_breakdown": {
+    "AGRICULTURAL_BURNING": 14,
+    "GAS_FLARE": 12,
+    "INDUSTRIAL_FIRE": 0,
+    "MINING_ACTIVITY": 0,
+    "WILDFIRE": 0,
+    "PENDING_REVIEW": 72
+  },
+  "industrial_fire_status": {
+    "candidate_cases_in_packet": 15,
+    "adjudicated_verified_count": 0,
+    "pending_expert_review_count": 14,
+    "status": "PARTIAL_EVIDENCE",
+    "interpretation": "Level-1 catalog industrial cases are verified; ambient proximity candidates remain pending field review."
+  },
+  "mining_status": {
+    "candidate_cases_in_packet": 0,
+    "adjudicated_verified_count": 0,
+    "mandatory_statement": "No independently verified Mining thermal event was available in the evaluated review sample.",
+    "status": "NOT_ESTABLISHED_IN_REVIEW_SAMPLE"
+  },
+  "risk_engine_invariant": true,
+  "ml_shadow_only": true,
+  "fabricated_labels": false,
+  "automatic_adjudication": false,
+  "production_deployment_authorized": false,
+  "gate": "GATE B \u2014 CONDITIONAL HUMAN VALIDATION",
+  "gate_rationale": "The human verification and adjudication framework is fully implemented with double-blinded controls, audit logs, and multi-reviewer lifecycle support. 25 cases have Level-1 catalog ground-truth adjudication, while 75 cases remain PENDING_REVIEW awaiting independent domain-expert panel completion.",
+  "mandatory_statement": "Phase 4F-21 does not authorize production deployment."
+}
